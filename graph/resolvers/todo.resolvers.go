@@ -1,4 +1,4 @@
-package graph
+package resolvers
 
 // This file will be automatically regenerated based on the schema, any resolver implementations
 // will be copied through when generating and any unknown code will be moved to the end.
@@ -8,6 +8,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/drajanikant/graphql-golang/graph/generated"
 	"github.com/drajanikant/graphql-golang/graph/model"
 )
 
@@ -16,16 +17,21 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 	panic(fmt.Errorf("not implemented: CreateTodo - createTodo"))
 }
 
+// UpdateTodo is the resolver for the updateTodo field.
+func (r *mutationResolver) UpdateTodo(ctx context.Context, input model.UpdateTodo) (*model.Todo, error) {
+	panic(fmt.Errorf("not implemented: UpdateTodo - updateTodo"))
+}
+
 // Todos is the resolver for the todos field.
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 	panic(fmt.Errorf("not implemented: Todos - todos"))
 }
 
-// Mutation returns MutationResolver implementation.
-func (r *Resolver) Mutation() MutationResolver { return &mutationResolver{r} }
+// Mutation returns generated.MutationResolver implementation.
+func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
 
-// Query returns QueryResolver implementation.
-func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
+// Query returns generated.QueryResolver implementation.
+func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
